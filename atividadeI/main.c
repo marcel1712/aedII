@@ -45,14 +45,22 @@ void printGraph(Graph graph){
     printf("Total of vertices: %d, total of arcs: %d\n", graph.Vertices, graph.Arestas);
     for(int i = 0; i < graph.Vertices; i++){
         printf("Vertex %d, arcs: ", i);
+
+        int primeiro = 1; // flag para controlar a vírgula
         for (int j = 0; j < graph.Vertices; j++) {
-            if(graph.adj[i][j] != 0){
-                printf("%d, ", j);
+            if (graph.adj[i][j] != 0) {
+                if (!primeiro) {
+                    printf(", ");
+                }
+                printf("%d", j);
+                primeiro = 0;
             }
         }
+
         printf("\n");
     }
 }
+
 
 int main() {
     int V;
